@@ -1,0 +1,35 @@
+Zachary Vollen, Yadu Kiran
+Date: 10/28/2015
+
+Purpose of the Program: 
+The Program is designed to either Encode or Decode all the files in a directory (as well as its subdirectories which is specified by the user, and store the results in the same file hierarchy in an output folder which is also specified by the user.) 
+
+How to Compile the Program:
+A makefile already specifies the dependencies. Hence, to run the program, simply change the directory in the shell to where the MakeFile is located and type "make".
+
+How to Use the Program from the Shell
+If you want to execute the program, first change the working directory to the one where the executable is located and enter the following command in the shell:
+./codec_4061 -[ed] <input_directory> <output_directory>
+Where you enter -e in the second argument if you want to Encode the Input Directory, or -d if you want to decode the Input Directory
+<input_directory> is the path of the directory which you want to Encode or Decode.
+<output_directory> is the path of the directory where you want the program to store the Encoded or Decoded Files.
+Suppose you want to encode the directory test01 and write its contents to the directory output01, then the command would be:
+./codec_4061 -e test01 output01
+
+How the Program Works:
+The program accepts the Input and Output Directories as arguments from the invoking command, and also the choice of Encoding or Decoding. A global variable "mode" is set to 1 if the user wants to encode, and 2 if the user wants to Decode.
+The program consists a function (readDirContents(path)) which opens and reads the directory which is specified by the path. It reads the contents of the directory sequentially, and if the directory contains another dsubdirectory, the functions
+calls itself again (i.e recursion) with a new path which specifies the sub directory. 
+If a directory entry is a file, then readDirContents calls a function readFileContents(filepath) which opens and reads the file specified the filepath. This function checks the variable mode to determine if the operation is Encode or Decode.
+If the operation is Encode, the function readFileContents reads Three Bytes at a time and stores it in the Buffer inputbuf[3] which is of type unsigned char. We then call the function encode_block and pass the Input and Output Buffers. 
+The function encode_block encodes three 8-bit characters as four 6-bit characters and stores it in the Output Buffer. We then write the Outputbuf to a file of the same name as the one which we're operating, except in the output_directory. 
+Note: If the number of characters in the File to be encoded is not a multiple or 3, we append the corresponding number of 0s at the end of the file.
+A new line is written at the end of the output encoded file,but only when it's not on an empty file.
+If the operation is Decode, the function readFileContents reads Four Bytes at a time and stores it in the Buffer inputbuf[4] which is of type unsigned char. We then call the function decode_block and pass the Input and Output Buffers.
+The function decode_block decodes four 6-bit characters into their original form as three 8-bit characters and stores it in the Output Buffer. We then write the Outputbuf to a file of the same name as the one which we're operating, except in the output_directory. 
+The same process repeats till all the files in the directory are encoded/decoded.
+For every file directory that we open, we call a function writeEntry() puts one line into an array for a report file (which is generated in the output folder) that has its name, file type, size before, and its size after Encoding and Decoding.
+We then sort the lines according to ASCII and write them into the report file. For soft links we simply ignore them and add the line <filename>, sym link, 0, 0 to the report file. 
+To handle hard links we store the inode number of all previously processed regular files. before processing a regular file we check if a file with its inode number has been already processed, 
+if we have we ignore the file and and the line <filename>, hard link, 0, 0 to the report file; otherwise, we add it's inode number to our inode number array and process the regular file as normal.
+

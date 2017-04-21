@@ -1,8 +1,3 @@
-/*
- * name: Zachary Vollen, Yadu Kiran
- * Date: 10/28/2015
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <sys/stat.h>

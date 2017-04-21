@@ -1,5 +1,5 @@
-# Zachary Vollen, Yadu Kiran
-## Date: 10/28/2015
+#Zachary Vollen, Yadu Kiran
+##Date: 10/28/2015
 
 ### Purpose of the Program: 
 The Program is designed to either Encode or Decode all the files in a directory (as well as its subdirectories which is specified by the user, and store the results in the same file hierarchy in an output folder which is also specified by the user.) 

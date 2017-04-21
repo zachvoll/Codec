@@ -1,14 +1,6 @@
-﻿/*
- * name: Zachary Vollen, Yadu Kiran
- * x500: voll0139, kiran013
- * CSELabs machine: CSEL-KH1200-14
+/*
+ * names: Zachary Vollen, Yadu Kiran
  */
- 
- /*
-  * Login: voll0139, kiran013
-  * Date: 10/28/2015
-  * ID: voll0139(4381309), kiran013(5183492)
-  */
 
 #include "codec.h"
 #include <string.h>

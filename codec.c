@@ -1,7 +1,3 @@
-/*
- * names: Zachary Vollen, Yadu Kiran
- */
-
 #include "codec.h"
 #include <string.h>
 

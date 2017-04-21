@@ -1,13 +1,13 @@
-Zachary Vollen, Yadu Kiran
-Date: 10/28/2015
+# Zachary Vollen, Yadu Kiran
+## Date: 10/28/2015
 
-Purpose of the Program: 
+### Purpose of the Program: 
 The Program is designed to either Encode or Decode all the files in a directory (as well as its subdirectories which is specified by the user, and store the results in the same file hierarchy in an output folder which is also specified by the user.) 
 
-How to Compile the Program:
+### How to Compile the Program:
 A makefile already specifies the dependencies. Hence, to run the program, simply change the directory in the shell to where the MakeFile is located and type "make".
 
-How to Use the Program from the Shell
+### How to Use the Program from the Shell:
 If you want to execute the program, first change the working directory to the one where the executable is located and enter the following command in the shell:
 ./codec_4061 -[ed] <input_directory> <output_directory>
 Where you enter -e in the second argument if you want to Encode the Input Directory, or -d if you want to decode the Input Directory
@@ -16,7 +16,7 @@ Where you enter -e in the second argument if you want to Encode the Input Direct
 Suppose you want to encode the directory test01 and write its contents to the directory output01, then the command would be:
 ./codec_4061 -e test01 output01
 
-How the Program Works:
+### How the Program Works:
 The program accepts the Input and Output Directories as arguments from the invoking command, and also the choice of Encoding or Decoding. A global variable "mode" is set to 1 if the user wants to encode, and 2 if the user wants to Decode.
 The program consists a function (readDirContents(path)) which opens and reads the directory which is specified by the path. It reads the contents of the directory sequentially, and if the directory contains another dsubdirectory, the functions
 calls itself again (i.e recursion) with a new path which specifies the sub directory. 

@@ -1,14 +1,7 @@
 /*
  * name: Zachary Vollen, Yadu Kiran
- * x500: voll0139, kiran013
- * CSELabs machine: CSEL-KH1200-14
+ * Date: 10/28/2015
  */
- 
- /*
-  * Login: voll0139, kiran013
-  * Date: 10/28/2015
-  * ID: voll0139(4381309), kiran(5183492)
-  */
 
 #include <stdio.h>
 #include <stdlib.h>
